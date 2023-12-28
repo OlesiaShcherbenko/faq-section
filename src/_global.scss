@@ -1,0 +1,125 @@
+@use 'util' as u;
+
+:root {
+    --c-white: #FFFFFF;
+    --c-pink: #AD28EB;
+    --c-lightpink: #F8EEFF;
+    --c-darkpurple: #301534;
+    --c-palepurple: #8B6990;
+
+    --f-display: #{clamp(
+        u.rem(32), 
+        1.471830985915493rem + 2.253521126760563vw, 
+        u.rem(56)
+    )};
+    --f-titel: #{clamp(
+        u.rem(16), 
+        0.9559859154929577rem + 0.18779342723004694vw, 
+        u.rem(18)
+    )};
+    --f-body: #{clamp(
+        u.rem(14), 
+        0.8309859154929577rem + 0.18779342723004694vw, 
+        u.rem(16)
+    )};
+}
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: u.rem(400);
+    min-height: 100vh;
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.5;
+    background-color: var(--c-lightpink);
+    background-image: url(/background-pattern-desktop.svg);
+    background-repeat: no-repeat;
+}
+
+#root {
+    max-width: u.rem(1600);
+    margin: 0 auto;
+    padding: 0 u.rem(24);
+}
+
+.faqs {
+    width: u.rem(600);
+    height: u.rem(565);
+    background-color: var(--c-white);
+    border-radius: u.rem(16);
+    padding: u.rem(40);
+    box-shadow: u.rem(0) u.rem(32) u.rem(56) u.rem(0) rgba(80, 0, 118, 0.10);
+
+    &__heading {
+        display: flex;
+        align-items: center;
+        margin-bottom: u.rem(3.5);
+
+        img {
+            width: u.rem(35);
+            height: u.rem(35);
+            margin-right: u.rem(26);
+        }
+
+        h2 {
+            font-size: var(--f-display);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0;
+            color: var(--c-darkpurple);
+        }
+    }
+
+    &__item {
+        border-bottom: u.rem(1) solid var(--c-lightpink);
+        padding-block: u.rem(24);
+    }
+
+    &__question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        h3 {
+            font-size: var(--f-titel);
+            font-weight: 600;
+            color: var(--c-darkpurple);
+            margin: 0;
+        }
+    }
+
+    &__plus {
+        width: u.rem(25);
+        height: u.rem(25);
+        cursor: pointer;
+    }
+
+    &__minus {
+        width: u.rem(25);
+        height: u.rem(25);
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+    }
+
+    &__answer {
+        font-size: var(--f-body);
+        font-weight: 400;
+        color: var(--c-palepurple);
+        margin: 0;
+        margin-top: u.rem(24);
+    }
+}
